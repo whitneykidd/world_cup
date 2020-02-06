@@ -37,4 +37,18 @@ class TeamTest < Minitest::Test
     assert_equal [mbappe, pogba], team.players
   end
 
+  def test_it_can_sort_players_by_position
+    team = Team.new("France")
+    mbappe = Player.new({name: "Kylian Mbappe", position: "forward"})
+    pogba = Player.new({name: "Paul Pogba", position: "midfielder"})
+
+    team.add_player(mbappe)
+    team.add_player(pogba)
+    
+    team.players_by_position("midfielder")
+    assert_equal [pogba], team.players_by_position("midfielder")
+
+    team.players_by_position("forward")
+    assert_equal [mbappe], team.players_by_position("forward")
+  end
 end
