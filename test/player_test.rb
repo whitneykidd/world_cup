@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/player'
 
-class CellTest < Minitest::Test
+class PlayerTest < Minitest::Test
   def test_it_exists
     player = Player.new({name: "Luka Modric", position: "midfielder"})
     require "pry"; binding.pry
