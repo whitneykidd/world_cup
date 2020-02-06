@@ -22,4 +22,19 @@ class TeamTest < Minitest::Test
     assert_equal true, team.eliminated?
   end
 
+  def test_it_starts_without_players
+    team = Team.new("France")
+    assert_equal [], team.players
+  end
+
+  def test_it_can_add_players
+    team = Team.new("France")
+    mbappe = Player.new({name: "Kylian Mbappe", position: "forward"})
+    pogba = Player.new({name: "Paul Pogba", position: "midfielder"})
+
+    team.add_player(mbappe)
+    team.add_player(pogba)
+    assert_equal [mbappe, pogba], team.players
+  end
+
 end
